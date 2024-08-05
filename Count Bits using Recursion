@@ -1,0 +1,26 @@
+def binary(num):
+  if num==0 or num==1:
+    return num
+  if num%2==0:
+    return binary(num//2)
+  else:
+    return 1+ binary(num//2)
+
+
+T = int(input())
+for _ in range(T):
+  n = int(input())
+  ans = []
+  
+  for i in range(n+1):
+    ans.append(str(binary(i)))
+  res = " ".join(ans) 
+  print(res)
+
+#sample input-
+#2
+#2
+#5
+#sample output-
+#0 1 1
+#0 1 1 2 1 2
