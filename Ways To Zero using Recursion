@@ -1,0 +1,21 @@
+def WaysToZero(n):
+  if(n==0):
+    return 1
+  if n<0:
+    return 0
+  
+  return WaysToZero(n-1) + WaysToZero(n-2) + WaysToZero(n-5)
+
+
+T = int(input())
+for _ in range(T):
+  n = int(input())
+  res = WaysToZero(n)
+  print(res)
+  
+# sample input - 
+# 1
+# 4
+
+# sample output- 
+# 5
