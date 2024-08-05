@@ -1,0 +1,37 @@
+def remove_dublicate(s):
+  if(len(s) < 2):
+    return s
+  i = 0
+  while i< len(s)-1:
+    if s[i] == s[i+1]:
+      
+      j = i+1
+      while j< len(s) and s[j] == s[i]:
+        j+=1
+      return remove_dublicate(s[:i]+s[j:])
+    i+=1
+  return s
+
+
+T = int(input())
+for _ in range(T):
+  string = input()
+  
+  result = remove_dublicate(string)
+  if result =="":
+    print("Empty String")
+  else:
+    print(result)
+
+# Example usage:
+# 4
+# azxxxzy
+# caaabbbaac
+# gghhg
+# aaaacddddcappp
+
+# Expected Output:
+# ay
+# Empty String
+# g
+# a
