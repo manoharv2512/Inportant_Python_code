@@ -1,0 +1,22 @@
+def count_ways(X, N):
+    def helper(X, N, current_number):
+        if X == 0:
+            return 1
+        if X < 0 or current_number == 0:
+            return 0
+        
+        power = current_number ** N
+        if power > X:
+            return helper(X, N, current_number - 1)
+        
+        include_current = helper(X - power, N, current_number - 1)
+        exclude_current = helper(X, N, current_number - 1)
+        
+        return include_current + exclude_current
+    
+    max_base = int(X ** (1 / N))
+    return helper(X, N, max_base)
+
+# Input handling
+X, N = list(map(int, input().split()))
+print(count_ways(X, N))
